@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triangle Ventures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #06080a; color: #eceef0; -webkit-font-smoothing: antialiased; }
+
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(6,8,10,0.9); border-bottom: 1px solid rgba(255,255,255,0.07); transform: translateY(-100%); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; }
+
+    .hero-bg { background: radial-gradient(ellipse at 50% 0%, rgba(251,191,36,0.1) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(245,101,39,0.08) 0%, transparent 50%), #06080a; }
+    .dot-grid { background-image: radial-gradient(circle, rgba(255,255,255,0.038) 1px, transparent 1px); background-size: 32px 32px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Triangle SVG animation */
+    @keyframes rotate-triangle { from { transform: rotate(0deg); } to { transform { rotate(360deg); } } }
+    .tri-spin { animation: rotate-triangle 20s linear infinite; }
+
+    .thesis-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; transition: all 0.2s ease; }
+    .thesis-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(251,191,36,0.25); transform: translateY(-2px); }
+
+    .cta-btn { background: linear-gradient(135deg, #f59e0b, #f97316); transition: all 0.2s ease; border: none; }
+    .cta-btn:hover { box-shadow: 0 12px 32px rgba(245,158,11,0.35); transform: scale(1.02); }
+
+    .three-badge { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.25); border-radius: 8px; padding: 4px 10px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(251,191,36,0.8); font-weight: 600; display: inline-block; }
+
+    /* Big triangle decorative */
+    .big-tri { width: 0; height: 0; border-left: 120px solid transparent; border-right: 120px solid transparent; border-bottom: 208px solid rgba(251,191,36,0.06); position: absolute; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="18" height="16" viewBox="0 0 18 16" fill="none"><path d="M9 1L17 15H1L9 1Z" stroke="rgba(251,191,36,0.7)" stroke-width="1.5" fill="rgba(251,191,36,0.08)"/></svg>
+      <span style="font-size:15px;font-weight:700;letter-spacing:-0.02em;">Triangle Ventures</span>
+    </div>
+    <a href="#pitch" class="cta-btn" style="font-size:13px;font-weight:600;color:white;padding:8px 18px;border-radius:8px;text-decoration:none;cursor:pointer;">Pitch us</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-bg dot-grid" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px;position:relative;overflow:hidden;">
+  <!-- decorative triangles -->
+  <div style="position:absolute;top:8%;right:8%;opacity:0.15;"><svg width="200" height="174" viewBox="0 0 200 174" fill="none"><path d="M100 2L198 172H2L100 2Z" stroke="rgba(251,191,36,1)" stroke-width="1"/></svg></div>
+  <div style="position:absolute;bottom:12%;left:5%;opacity:0.08;"><svg width="140" height="122" viewBox="0 0 140 122" fill="none"><path d="M70 2L138 120H2L70 2Z" stroke="rgba(251,191,36,1)" stroke-width="1" fill="rgba(251,191,36,0.3)"/></svg></div>
+
+  <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:100px;padding:6px 16px;margin-bottom:32px;">
+    <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M6 1L11 9H1L6 1Z" fill="rgba(251,191,36,0.6)"/></svg>
+    <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(236,238,240,0.6);">thesis-driven venture fund</span>
+  </div>
+
+  <h1 style="font-size:clamp(40px,9vw,88px);font-weight:900;letter-spacing:-0.04em;line-height:0.95;max-width:700px;margin-bottom:28px;">
+    The best things<br>come in
+    <span style="background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">threes.</span>
+  </h1>
+
+  <p style="font-size:clamp(15px,2.5vw,19px);color:rgba(236,238,240,0.5);max-width:500px;line-height:1.65;margin-bottom:52px;">
+    Every investment pressure-tested against a three-part framework. Three conditions. Three advantages. Three paths to dominance. Not a superstition. A discipline.
+  </p>
+
+  <!-- Three stats -->
+  <div style="display:flex;gap:0;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;margin-bottom:48px;background:rgba(255,255,255,0.02);">
+    <div style="padding:24px 36px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);">
+      <div style="font-size:36px;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</div>
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(236,238,240,0.35);margin-top:4px;">sectors</div>
+    </div>
+    <div style="padding:24px 36px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);">
+      <div style="font-size:36px;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</div>
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(236,238,240,0.35);margin-top:4px;">per sector</div>
+    </div>
+    <div style="padding:24px 36px;text-align:center;">
+      <div style="font-size:36px;font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</div>
+      <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(236,238,240,0.35);margin-top:4px;">year window</div>
+    </div>
+  </div>
+
+  <a href="#pitch" class="cta-btn" style="display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:15px;font-weight:600;color:white;text-decoration:none;cursor:pointer;">
+    Submit a pitch
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- The framework -->
+<section style="max-width:1000px;margin:0 auto;padding:96px 24px;">
+  <div class="reveal" style="margin-bottom:64px;text-align:center;">
+    <p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(251,191,36,0.7);margin-bottom:12px;">the framework</p>
+    <h2 style="font-size:clamp(26px,4vw,42px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;">Every pitch must answer three questions.<br><span style="color:rgba(236,238,240,0.4);">For each of three things.</span></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+
+    <div class="thesis-card reveal reveal-delay-1" style="padding:32px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <svg width="28" height="24" viewBox="0 0 28 24" fill="none"><path d="M14 2L26 22H2L14 2Z" stroke="rgba(251,191,36,0.6)" stroke-width="1.5" fill="rgba(251,191,36,0.06)"/></svg>
+        <span class="three-badge">The problem</span>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(236,238,240,0.5);margin-bottom:20px;">Three conditions that make this problem worth solving. Not symptoms. Structural conditions that guarantee this problem persists without intervention.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:rgba(251,191,36,0.6);display:flex;align-items:center;gap:8px;"><span>1.</span> The pain is specific and undeniable</div>
+        <div style="font-size:12px;color:rgba(251,191,36,0.6);display:flex;align-items:center;gap:8px;"><span>2.</span> The market is large enough to matter</div>
+        <div style="font-size:12px;color:rgba(251,191,36,0.6);display:flex;align-items:center;gap:8px;"><span>3.</span> The timing is now, not someday</div>
+      </div>
+    </div>
+
+    <div class="thesis-card reveal reveal-delay-2" style="padding:32px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <svg width="28" height="24" viewBox="0 0 28 24" fill="none"><path d="M14 2L26 22H2L14 2Z" stroke="rgba(249,115,22,0.6)" stroke-width="1.5" fill="rgba(249,115,22,0.06)"/></svg>
+        <span style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:4px 10px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(249,115,22,0.8);font-weight:600;display:inline-block;">The solution</span>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(236,238,240,0.5);margin-bottom:20px;">Three structural advantages that make this company the one that wins. Not features. Moats. The compounding advantages that get wider with every passing quarter.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:rgba(249,115,22,0.6);display:flex;align-items:center;gap:8px;"><span>1.</span> A distribution edge nobody else has</div>
+        <div style="font-size:12px;color:rgba(249,115,22,0.6);display:flex;align-items:center;gap:8px;"><span>2.</span> A data or network effect moat</div>
+        <div style="font-size:12px;color:rgba(249,115,22,0.6);display:flex;align-items:center;gap:8px;"><span>3.</span> A switching cost that compounds</div>
+      </div>
+    </div>
+
+    <div class="thesis-card reveal reveal-delay-3" style="padding:32px;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+        <svg width="28" height="24" viewBox="0 0 28 24" fill="none"><path d="M14 2L26 22H2L14 2Z" stroke="rgba(251,191,36,0.4)" stroke-width="1.5" fill="rgba(251,191,36,0.03)"/></svg>
+        <span style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:8px;padding:4px 10px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(99,102,241,0.8);font-weight:600;display:inline-block;">The path</span>
+      </div>
+      <p style="font-size:13px;line-height:1.7;color:rgba(236,238,240,0.5);margin-bottom:20px;">Three paths to market dominance. Three ways this becomes defensible, durable, and irreplaceable. Not scenarios. Committed strategies with clear first steps.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="font-size:12px;color:rgba(99,102,241,0.6);display:flex;align-items:center;gap:8px;"><span>1.</span> The beachhead: one customer, done perfectly</div>
+        <div style="font-size:12px;color:rgba(99,102,241,0.6);display:flex;align-items:center;gap:8px;"><span>2.</span> The expansion: the second market</div>
+        <div style="font-size:12px;color:rgba(99,102,241,0.6);display:flex;align-items:center;gap:8px;"><span>3.</span> The inevitable: why this becomes infrastructure</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Pitch section -->
+<section id="pitch" style="padding:96px 24px;background:radial-gradient(ellipse at center,rgba(251,191,36,0.07) 0%,transparent 65%);">
+  <div style="max-width:520px;margin:0 auto;text-align:center;">
+    <div class="reveal">
+      <h2 style="font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:16px;">Pitch in threes.</h2>
+      <p style="font-size:15px;line-height:1.7;color:rgba(236,238,240,0.45);margin-bottom:40px;">Three sentences on the problem. Three on the advantage. Three on the path. If you can't do it in nine sentences, keep refining until you can.</p>
+
+      <form onsubmit="handlePitch(event)" style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+        <input type="text" placeholder="Company name" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:14px 16px;font-size:14px;color:#eceef0;font-family:'Inter',sans-serif;outline:none;" onfocus="this.style.borderColor='rgba(251,191,36,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+        <textarea placeholder="Three sentences on the problem." rows="3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:14px 16px;font-size:14px;color:#eceef0;font-family:'Inter',sans-serif;outline:none;resize:none;" onfocus="this.style.borderColor='rgba(251,191,36,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'"></textarea>
+        <textarea placeholder="Three sentences on the structural advantage." rows="3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:14px 16px;font-size:14px;color:#eceef0;font-family:'Inter',sans-serif;outline:none;resize:none;" onfocus="this.style.borderColor='rgba(251,191,36,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'"></textarea>
+        <textarea placeholder="Three sentences on how you win." rows="3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:14px 16px;font-size:14px;color:#eceef0;font-family:'Inter',sans-serif;outline:none;resize:none;" onfocus="this.style.borderColor='rgba(251,191,36,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'"></textarea>
+        <input type="email" placeholder="Founder email" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:14px 16px;font-size:14px;color:#eceef0;font-family:'Inter',sans-serif;outline:none;" onfocus="this.style.borderColor='rgba(251,191,36,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+        <button type="submit" class="cta-btn" style="padding:16px;border-radius:10px;font-size:15px;font-weight:600;color:white;cursor:pointer;font-family:'Inter',sans-serif;">Submit pitch</button>
+      </form>
+      <div id="pitch-thanks" style="display:none;padding:24px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.2);border-radius:12px;margin-top:16px;">
+        <p style="font-size:14px;color:rgba(251,191,36,0.8);">We have your pitch. If it passes the framework, you'll hear back within a week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;">
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px;">
+    <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M7 1L13 11H1L7 1Z" stroke="rgba(251,191,36,0.4)" stroke-width="1" fill="rgba(251,191,36,0.06)"/></svg>
+    <p style="font-size:12px;color:rgba(236,238,240,0.2);">Triangle Ventures &mdash; the best things come in threes &mdash; 2026</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var nav = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      var nearBottom = scrollY + window.innerHeight >= document.documentElement.scrollHeight - 200;
+      var visible = scrollY > 80 && !nearBottom;
+      nav.style.transform = visible ? 'translateY(0)' : 'translateY(-100%)';
+      nav.style.opacity = visible ? '1' : '0';
+    }, { passive: true });
+  })();
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  function handlePitch(e) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('pitch-thanks').style.display = 'block';
+  }
+</script>
+</body>
+</html>
